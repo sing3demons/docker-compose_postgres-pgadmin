@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres
+    container_name: some-postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=pg-api
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=syspass
+    volumes:
+      - ./database-data:/var/lib/postgresql/data
+    restart: always
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=sing3demons@live.com
+      - PGADMIN_DEFAULT_PASSWORD=SuperSecret
+    ports:
+      - 8081:80
+    restart: always
+    volumes: 
+      - ./pgadmin:/root/.pgadmin
+volumes:
+  database-data:
+  pgadmin:
+
