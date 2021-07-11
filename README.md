@@ -12,5 +12,5 @@ docker-compose up --build
 ```
 
 ```
-docker-compose
+docker-compose down
 ```
